@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project1 - Vue instance, interpolation and directives uses</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{ showTitle() }}</h1>
+		<input type="text" v-on:input="changeInputResult">
+		<p>{{inputResult}} - <a v-bind:href="link">Google</a></p>
+	</div>
+	
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			title: 'Hello World',
+			inputResult: '',
+			link: 'https://google.com'
+		},
+		methods: {
+			changeInputResult: function(event){
+				this.inputResult = event.target.value;
+			},
+			showTitle: function(){
+				return this.title;
+			}
+		}
+	});
+
+</script>
+</html>

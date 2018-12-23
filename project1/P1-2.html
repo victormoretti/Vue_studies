@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Project1 - </title>
+	<script src="https://cdn.jsdelivr.net/npm/vue"></script>
+</head>
+<body>
+	<div id="app">
+		<button v-on:click="increase">Click me</button>
+		<p>Counter: {{ counter }}</p>
+		<p v-on:mousemove="updateCoordinates">
+			Coordinates: {{ x }} / {{ y }} -
+			<span v-on:mousemove.stop="">Dead spot</span>
+			<form action="https://google.com" method="GET">
+				<input type="submit" value="Enviar" v-on:click.prevent="alert('yes')">
+			</form>
+		</p>
+	</div>
+	
+</body>
+<script>
+	new Vue({
+		el: '#app',
+		data: {
+			counter: 0,
+			x: 0,
+			y: 0
+		},
+		methods: {
+			increase: function(){
+				this.counter++;
+			},
+			updateCoordinates: function(event){
+				this.x = event.clientX;
+				this.y = event.clientY;
+			}
+		}
+	});
+
+</script>
+</html>
